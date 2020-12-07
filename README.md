@@ -76,4 +76,4 @@ $routeConfigurator->configure(
 ```
 
 ## Usage
-See [jerowork/route-attribute-provider](http://) for examples.
+See [jerowork/route-attribute-provider](https://github.com/jerowork/route-attribute-provider#usage) for examples.
