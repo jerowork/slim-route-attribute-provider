@@ -35,7 +35,9 @@ $routeConfigurator = new RouteAttributeConfigurator(
     SlimRouteAttributeProvider::createFromApp($app)
 );
 
-$routeConfigurator->configure(sprintf('%s/src/Infrastructure/Api/Http/Action', __DIR__));
+$routeConfigurator
+    ->addDirectory(sprintf('%s/src/Infrastructure/Api/Http/Action', __DIR__))
+    ->configure();
 
 // ...
 
@@ -67,10 +69,12 @@ $routeConfigurator = new RouteAttributeConfigurator(
 );
 
 // Multiple directories can be defined
-$routeConfigurator->configure(
-    sprintf('%s/src/Infrastructure/Api/Http/Action', __DIR__),
-    sprintf('%s/src/Other/Controller', __DIR__)
-);
+$routeConfigurator
+    ->addDirectory(
+        sprintf('%s/src/Infrastructure/Api/Http/Action', __DIR__),
+        sprintf('%s/src/Other/Controller', __DIR__)
+    )
+    ->configure();
 
 // ...
 ```
