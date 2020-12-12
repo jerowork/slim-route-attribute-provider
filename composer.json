@@ -24,6 +24,10 @@
     "provide": {
         "jerowork/route-attribute-provider-implementation": "0.1"
     },
+    "require-dev": {
+        "mockery/mockery": "^1.4",
+        "scrutinizer/ocular": "^1.8"
+    },
     "autoload": {
         "psr-4": {
             "Jerowork\\RouteAttributeProvider\\Slim\\": "src/"
@@ -33,9 +37,5 @@
         "psr-4": {
             "Jerowork\\RouteAttributeProvider\\Slim\\Test\\": "tests/"
         }
-    },
-    "require-dev": {
-        "mockery/mockery": "^1.4",
-        "scrutinizer/ocular": "^1.8"
     }
 }
