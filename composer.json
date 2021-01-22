@@ -1,6 +1,6 @@
 {
     "name": "jerowork/slim-route-attribute-provider",
-    "type": "project",
+    "type": "library",
     "description": "Define Slim routes by PHP8 attributes",
     "keywords": [
         "php8",
