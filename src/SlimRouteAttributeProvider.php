@@ -46,7 +46,11 @@ final class SlimRouteAttributeProvider implements RouteAttributeProviderInterfac
             $routeMap->setName($routeName);
         }
 
-        foreach ($route->getMiddleware() as $middleware) {
+        /**
+         * Slims order of execution of middleware feels counterintuitive,
+         * therefore, reverse the order of the middleware, so that the first set middleware will be executed first.
+         */
+        foreach (array_reverse($route->getMiddleware()) as $middleware) {
             $routeMap->addMiddleware($this->container->get($middleware));
         }
     }

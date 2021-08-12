@@ -7,10 +7,11 @@ namespace Jerowork\RouteAttributeProvider\Slim\Test;
 use Jerowork\RouteAttributeProvider\Api\RequestMethod;
 use Jerowork\RouteAttributeProvider\Api\Route;
 use Jerowork\RouteAttributeProvider\Slim\SlimRouteAttributeProvider;
+use Jerowork\RouteAttributeProvider\Slim\Test\Stub\StubMiddlewareA;
+use Jerowork\RouteAttributeProvider\Slim\Test\Stub\StubMiddlewareB;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
 use Psr\Container\ContainerInterface;
-use Psr\Http\Server\MiddlewareInterface;
 use Slim\App;
 use Slim\Interfaces\RouteCollectorInterface;
 use Slim\Interfaces\RouteInterface;
@@ -55,17 +56,28 @@ final class SlimRouteAttributeProviderTest extends MockeryTestCase
 
         $container->expects('get')
             ->once()
-            ->with(stdClass::class)
-            ->andReturn($middleware = Mockery::mock(MiddlewareInterface::class));
+            ->with(StubMiddlewareA::class)
+            ->andReturn($middlewareA = new StubMiddlewareA());
+
+        $container->expects('get')
+            ->once()
+            ->with(StubMiddlewareB::class)
+            ->andReturn($middlewareB = new StubMiddlewareB());
 
         $map->expects('addMiddleware')
+            ->ordered()
             ->once()
-            ->with($middleware);
+            ->with($middlewareB);
+
+        $map->expects('addMiddleware')
+            ->ordered()
+            ->once()
+            ->with($middlewareA);
 
         $provider->configure(
             stdClass::class,
             '__invoke',
-            new Route('/root', name: 'root.name', middleware: stdClass::class)
+            new Route('/root', name: 'root.name', middleware: [StubMiddlewareA::class, StubMiddlewareB::class])
         );
     }
 }
