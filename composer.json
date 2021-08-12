@@ -19,7 +19,7 @@
         "php": "^8.0",
         "jerowork/route-attribute-provider": "^0.3",
         "psr/container": "^1.0",
-        "slim/slim": "^4.7"
+        "slim/slim": "^4.8"
     },
     "provide": {
         "jerowork/route-attribute-provider-implementation": "0.3"
