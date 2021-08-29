@@ -22,7 +22,7 @@ final class SlimRouteAttributeProvider implements RouteAttributeProviderInterfac
         $this->container      = $container;
     }
 
-    public static function createFromApp(App $app): self
+    public static function createFromApp(App $app) : self
     {
         $container = $app->getContainer();
 
@@ -33,7 +33,7 @@ final class SlimRouteAttributeProvider implements RouteAttributeProviderInterfac
         return new self($app->getRouteCollector(), $container);
     }
 
-    public function configure(string $className, string $methodName, Route $route): void
+    public function configure(string $className, string $methodName, Route $route) : void
     {
         $routeMap = $this->routeCollector->map(
             $route->getMethods(),
@@ -55,12 +55,12 @@ final class SlimRouteAttributeProvider implements RouteAttributeProviderInterfac
         }
     }
 
-    public function getRouteCollector(): RouteCollectorInterface
+    public function getRouteCollector() : RouteCollectorInterface
     {
         return $this->routeCollector;
     }
 
-    public function getContainer(): ContainerInterface
+    public function getContainer() : ContainerInterface
     {
         return $this->container;
     }
