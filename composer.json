@@ -17,7 +17,7 @@
     ],
     "require": {
         "php": "^8.0",
-        "jerowork/route-attribute-provider": "^0.4",
+        "jerowork/route-attribute-provider": "^0.5",
         "psr/container": "^1.0 || ^2.0",
         "slim/slim": "^4.8"
     },

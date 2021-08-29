@@ -48,11 +48,11 @@ $app->run();
 Extended configuration:
 
 ```php
-use Jerowork\RouteAttributeProvider\ClassNameLoader\Tokenizer\TokenizerClassNameLoader;
-use Jerowork\RouteAttributeProvider\Finder\DirectoryIterator\DirectoryIteratorPhpFileFinder;
+use Jerowork\FileClassReflector\FileFinder\RegexIterator\RegexIteratorFileFinder;
+use Jerowork\FileClassReflector\PhpDocumentor\PhpDocumentorClassReflectorFactory;
 use Jerowork\RouteAttributeProvider\RouteAttributeConfigurator;
-use Jerowork\RouteAttributeProvider\RouteLoader\Reflection\ReflectionRouteLoader;
 use Jerowork\RouteAttributeProvider\Slim\SlimRouteAttributeProvider;
+use phpDocumentor\Reflection\Php\ProjectFactory;
 
 // ...
 
@@ -62,10 +62,12 @@ $routeConfigurator = new RouteAttributeConfigurator(
         $app->getRouteCollector(),
         $container
     ),
-    new TokenizerClassNameLoader(
-        new DirectoryIteratorPhpFileFinder()
-    ),
-    new ReflectionRouteLoader()
+    new ClassReflectorRouteLoader(
+        new PhpDocumentorClassReflectorFactory(
+            ProjectFactory::createInstance(),
+            new RegexIteratorFileFinder()
+        )
+    )
 );
 
 // Multiple directories can be defined
