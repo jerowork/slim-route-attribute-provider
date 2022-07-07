@@ -1,14 +1,14 @@
 {
     "name": "jerowork/slim-route-attribute-provider",
-    "type": "library",
     "description": "Define Slim routes by PHP8 attributes",
+    "license": "MIT",
+    "type": "library",
     "keywords": [
         "php8",
         "attributes",
         "router",
         "slim"
     ],
-    "license": "MIT",
     "authors": [
         {
             "name": "Jeroen de Graaf",
@@ -16,13 +16,10 @@
         }
     ],
     "require": {
-        "php": "^8.0",
-        "jerowork/route-attribute-provider": "^0.5",
+        "php": "^8.0.2",
+        "jerowork/route-attribute-provider": "^0.6",
         "psr/container": "^1.0 || ^2.0",
         "slim/slim": "^4.8"
-    },
-    "provide": {
-        "jerowork/route-attribute-provider-implementation": "0.4"
     },
     "require-dev": {
         "ergebnis/composer-normalize": "^2.15",
@@ -37,11 +34,8 @@
         "symfony/cache": "^5.3",
         "vimeo/psalm": "^4.9"
     },
-    "config": {
-        "platform": {
-            "php": "8.0"
-        },
-        "sort-packages": true
+    "provide": {
+        "jerowork/route-attribute-provider-implementation": "0.4"
     },
     "autoload": {
         "psr-4": {
@@ -52,5 +46,15 @@
         "psr-4": {
             "Jerowork\\RouteAttributeProvider\\Slim\\Test\\": "tests/"
         }
+    },
+    "config": {
+        "allow-plugins": {
+            "phpro/grumphp-shim": true,
+            "ergebnis/composer-normalize": true
+        },
+        "platform": {
+            "php": "8.0.2"
+        },
+        "sort-packages": true
     }
 }
