@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "php": "^8.0.2",
+        "php": "^8.1",
         "jerowork/route-attribute-provider": "^0.6",
         "psr/container": "^1.0 || ^2.0",
         "slim/slim": "^4.8"
@@ -50,9 +50,6 @@
         "allow-plugins": {
             "ergebnis/composer-normalize": true,
             "phpro/grumphp-shim": true
-        },
-        "platform": {
-            "php": "8.0.2"
         },
         "sort-packages": true
     }
