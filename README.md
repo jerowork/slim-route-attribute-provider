@@ -49,10 +49,11 @@ Extended configuration:
 
 ```php
 use Jerowork\FileClassReflector\FileFinder\RegexIterator\RegexIteratorFileFinder;
-use Jerowork\FileClassReflector\PhpDocumentor\PhpDocumentorClassReflectorFactory;
+use Jerowork\FileClassReflector\NikicParser\NikicParserClassReflectorFactory;
 use Jerowork\RouteAttributeProvider\RouteAttributeConfigurator;
 use Jerowork\RouteAttributeProvider\Slim\SlimRouteAttributeProvider;
-use phpDocumentor\Reflection\Php\ProjectFactory;
+use PhpParser\NodeTraverser;
+use PhpParser\ParserFactory;
 
 // ...
 
@@ -63,9 +64,10 @@ $routeConfigurator = new RouteAttributeConfigurator(
         $container
     ),
     new ClassReflectorRouteLoader(
-        new PhpDocumentorClassReflectorFactory(
-            ProjectFactory::createInstance(),
-            new RegexIteratorFileFinder()
+        new NikicParserClassReflectorFactory(
+            new RegexIteratorFileFinder(),
+            (new ParserFactory())->create(ParserFactory::PREFER_PHP7),
+            new NodeTraverser()
         )
     )
 );
