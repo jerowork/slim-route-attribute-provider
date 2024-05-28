@@ -8,6 +8,7 @@ use Jerowork\RouteAttributeProvider\Api\Route;
 use Jerowork\RouteAttributeProvider\RouteAttributeProviderInterface;
 use LogicException;
 use Psr\Container\ContainerInterface;
+use Psr\Http\Server\MiddlewareInterface;
 use Slim\App;
 use Slim\Interfaces\RouteCollectorInterface;
 
@@ -51,7 +52,9 @@ final class SlimRouteAttributeProvider implements RouteAttributeProviderInterfac
          * therefore, reverse the order of the middleware, so that the first set middleware will be executed first.
          */
         foreach (array_reverse($route->getMiddleware()) as $middleware) {
-            $routeMap->addMiddleware($this->container->get($middleware));
+            /** @var MiddlewareInterface $service */
+            $service = $this->container->get($middleware);
+            $routeMap->addMiddleware($service);
         }
     }
 
