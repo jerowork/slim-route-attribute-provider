@@ -4,7 +4,7 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/jerowork/slim-route-attribute-provider.svg?style=flat-square)](https://scrutinizer-ci.com/g/jerowork/slim-route-attribute-provider)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 [![Packagist Version](https://img.shields.io/packagist/v/jerowork/slim-route-attribute-provider.svg?style=flat-square&include_prereleases)](https://packagist.org/packages/jerowork/slim-route-attribute-provider)
-[![PHP Version](https://img.shields.io/badge/php-%5E8.0-8892BF.svg?style=flat-square)](http://www.php.net)
+[![PHP Version](https://img.shields.io/badge/php-%5E8.1+-8892BF.svg?style=flat-square)](http://www.php.net)
 
 Define [Slim](https://www.slimframework.com) routes by PHP8 [attributes]((https://stitcher.io/blog/attributes-in-php-8)).
 
