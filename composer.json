@@ -22,7 +22,6 @@
         "slim/slim": "^4.8"
     },
     "require-dev": {
-        "ergebnis/composer-normalize": "^2.15",
         "friendsofphp/php-cs-fixer": "^3.0",
         "mockery/mockery": "^1.4",
         "phpmd/phpmd": "^2.10",
@@ -48,7 +47,6 @@
     },
     "config": {
         "allow-plugins": {
-            "ergebnis/composer-normalize": true,
             "phpro/grumphp-shim": true
         },
         "sort-packages": true
